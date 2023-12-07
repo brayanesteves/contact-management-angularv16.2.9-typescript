@@ -29,21 +29,40 @@
     </div>
 </div>
 
+<!--<LOADING SPINNER>-->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+<!--<.LOADING SPINNER>-->
+
+<!--<ERROR MESSAGE>-->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">{{ errorMessage }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<.ERROR MESSAGE>-->
+
 <!--<LIST CARDS>-->
-<div class="container mt-3">
+<div *ngIf="!loading && naturalPersons.length > 0" class="container mt-3">
     <div class="row">
 
         <!--<CARD: USER PROFILE>-->
-        <div class="user-card">
+        <div *ngFor="let naturalPerson of naturalPersons" class="user-card">
             <div class="user-card-img">
-                <img src="https://images.pexels.com/photos/1417712/pexels-photo-1317712.jpeg?auto=compress&cs=tinysrgb&h=750&dpr=1" alt="" />
+                <img [src]="" [alt]=naturalPerson.Nms />
             </div>
             <div class="user-card-info">
-                <h2>Brayan Esteves</h2>
-                <p>Nacionality: <span></span></p>
-                <p>Country: <span></span></p>
-                <p>Referential Phone Number: <span></span></p>
-                <p>Tax Address: <span></span></p>
+                <h2>{{naturalPerson.Nms}}. {{naturalPerson.Srnms}}</h2>
+                <p>Nacionality: <span>{{naturalPerson.Rfrnc_Ncnlty}}</span></p>
+                <p>Country: <span>{{naturalPerson.Rfrnc_Cntry}}</span></p>
+                <p>Identification Document: <span>{{naturalPerson.IdntfctnDcmnt}}</span></p>
+                <p>Referential Phone Number: <span>{{naturalPerson.RfrntlPhnNmbr}}</span></p>
+                <p>Tax Address: <span>{{naturalPerson.TxAddrss}}</span></p>
             </div>
 
             <div class="">
