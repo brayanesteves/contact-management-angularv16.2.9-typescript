@@ -4,6 +4,7 @@ export interface INaturalPerson {
          Rfrnc?:number;
    Rfrnc_Ncnlty:number;
     Rfrnc_Cntry:number;
+  IdntfctnDcmnt:string
             Nms:string;
           Srnms:string;
   RfrntlPhnNmbr:string;
