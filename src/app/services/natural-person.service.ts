@@ -37,7 +37,7 @@ export class NaturalPersonService {
   }
 
   // [DELETE]
-  public delete(reference:string):Observable<{}> {
+  public delete(reference:number):Observable<{}> {
     let dataURL:string = `${this.serverURL}/natural-person/${reference}`;
     return this.httpClient.delete<{}>(dataURL).pipe(catchError(this.handleError));
   }

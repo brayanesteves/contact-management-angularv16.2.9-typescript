@@ -68,7 +68,7 @@
             <div class="">
                 <a routerLink="/contacts/view/{{naturalPerson.Rfrnc}}" class="btn btn-warning my-1"><i class="fa faeye"></i></a>
                 <a routerLink="/contacts/edit/{{naturalPerson.Rfrnc}}" class="btn btn-primary my-1"><i class="fa fa-pen"></i></a>
-                <button class="btn btn-danger my-1"><i class="fa fa-trash-alt"></i></button>
+                <button (click)="delete(naturalPerson.Rfrnc)" class="btn btn-danger my-1"><i class="fa fa-trash-alt"></i></button>
             </div>
         </div>
         <!--<.CARD: USER PROFILE>-->

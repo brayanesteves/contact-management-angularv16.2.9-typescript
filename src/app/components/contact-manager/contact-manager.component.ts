@@ -16,6 +16,10 @@ export class ContactManagerComponent implements OnInit {
   constructor(private naturalPersonService:NaturalPersonService) { }
 
   ngOnInit(): void {
+    this.getAllNaturalPersonFromServer();
+  }
+
+  public getAllNaturalPersonFromServer() {
     this.loading = true;
     this.naturalPersonService.getNaturalPersonsAll().subscribe((data) => {
       console.log(data)
@@ -25,5 +29,16 @@ export class ContactManagerComponent implements OnInit {
       this.errorMessage = error;
       this.loading      = false;
     });
+  }
+
+  public delete(reference:number | undefined) {
+    if(reference) {
+      this.naturalPersonService.delete(reference).subscribe((data) => {
+        this.getAllNaturalPersonFromServer();
+      }, (error) => {
+        this.errorMessage = error;
+        this.loading      = false;
+      });
+    }
   }
 }
