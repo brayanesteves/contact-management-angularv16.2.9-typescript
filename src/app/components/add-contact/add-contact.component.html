@@ -31,31 +31,36 @@
 
                         <div class="row">
                             <div class="col">
-                                <select [(ngModel)]="personNatural.Rfrnc_Ncnlty" name="Rfrnc_Ncnlty" id="Rfrnc_Ncnlty" class="form-select" aria-label="Default select example">
+                                <select [(ngModel)]="personNatural.Rfrnc_Ncnlty" name="Rfrnc_Ncnlty" id="Rfrnc_Ncnlty" class="form-select" aria-label="Default select example"  [value]="personNatural.Rfrnc_Ncnlty">
                                     <option selected>Selected</option>
                                     <option value="58">Venezuela</option>
                                 </select>
                             </div>
                             <div class="col">
-                                <select [(ngModel)]="personNatural.Rfrnc_Cntry" name="Rfrnc_Cntry" id="Rfrnc_Cntry" class="form-select" aria-label="Default select example">
+                                <select [(ngModel)]="personNatural.Rfrnc_Cntry" name="Rfrnc_Cntry" id="Rfrnc_Cntry" class="form-select" aria-label="Default select example"  [value]="personNatural.Rfrnc_Cntry">
                                     <option selected>Selected</option>
                                     <option value="1030">Caracas</option>
                                 </select>
                             </div>
                             <div class="col">                                
-                                <input type="text" [(ngModel)]="personNatural.IdntfctnDcmnt" name="IdntfctnDcmnt" id="IdntfctnDcmnt" class="form-control" />
+                                <input type="text" [(ngModel)]="personNatural.IdntfctnDcmnt" name="IdntfctnDcmnt" id="IdntfctnDcmnt" class="form-control" [value]="personNatural.IdntfctnDcmnt" />
                             </div>
                             <div class="col">                                
-                                <input type="text" [(ngModel)]="personNatural.Nms" name="Nms" id="Nms" class="form-control" />
+                                <input type="text" [(ngModel)]="personNatural.Nms" name="Nms" id="Nms" class="form-control" [value]="personNatural.Nms" />
                             </div>
                             <div class="col">
-                                <input type="text" [(ngModel)]="personNatural.Srnms" name="Srnms" id="Srnms" class="form-control" />
+                                <input type="text" [(ngModel)]="personNatural.Srnms" name="Srnms" id="Srnms" class="form-control" [value]="personNatural.Srnms" />
                             </div>
                             <div class="col">
-                                <input type="text" [(ngModel)]="personNatural.RfrntlPhnNmbr" name="RfrntlPhnNmbr" id="RfrntlPhnNmbr" class="form-control" />
+                                <input type="text" [(ngModel)]="personNatural.RfrntlPhnNmbr" name="RfrntlPhnNmbr" id="RfrntlPhnNmbr" class="form-control" [value]="personNatural.RfrntlPhnNmbr" />
                             </div>
                             <div class="col">
-                                <textarea [(ngModel)]="personNatural.TxAddrss" name="TxAddrss" id="TxAddrss" class="form-control" rows="3"></textarea>
+                                <textarea [(ngModel)]="personNatural.TxAddrss" name="TxAddrss" id="TxAddrss" class="form-control" rows="3">{{ personNatural.TxAddrss }}</textarea>
+                            </div>
+
+                            <div class="mb-2">
+                                <input type="submit" class="btn btn-danger" value="Update" />
+                                <a routerLink="/" class="btn btn-dark ms-2">Close</a>
                             </div>
                         </div>
 
