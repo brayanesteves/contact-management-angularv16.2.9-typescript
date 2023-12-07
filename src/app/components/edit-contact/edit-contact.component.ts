@@ -1,7 +1,7 @@
-import { Component, OnInit }    from '@angular/core';
-import { ActivatedRoute }       from '@angular/router';
-import { INaturalPerson }       from 'src/app/models/INaturalPerson';
-import { NaturalPersonService } from 'src/app/services/natural-person.service';
+import { Component, OnInit }      from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { INaturalPerson }         from 'src/app/models/INaturalPerson';
+import { NaturalPersonService }   from 'src/app/services/natural-person.service';
 
 @Component({
      selector:  'app-edit-contact',
@@ -16,7 +16,8 @@ export class EditContactComponent implements OnInit {
   public errorMessage:string | null   = null;
 
   constructor(private activateRoute:ActivatedRoute,
-              private naturalPersonService: NaturalPersonService) { }
+              private naturalPersonService: NaturalPersonService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe((param) => {
@@ -30,6 +31,17 @@ export class EditContactComponent implements OnInit {
       }, (error) => {
         this.errorMessage = error;
         this.loading      = false;
+      });
+    }
+  }
+
+  public update() {
+    if(this.reference) {      
+      this.naturalPersonService.update(this.naturalPerson, this.reference).subscribe((data) => {
+        this.router.navigate(['/']).then();
+      }, (error) => {
+        this.errorMessage = error;
+        this.router.navigate([`/contacts/edit/${this.reference}`]).then();
       });
     }
   }
